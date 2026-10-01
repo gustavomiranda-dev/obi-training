@@ -10,24 +10,22 @@ Imprima um único inteiro: o tamanho da maior sequência crescente encontrada.
 """
 
 n = int(input())
-lista = []
-cont = 0
-maior = []
 
-for i in range(0,n):
-    temp = int(input())
-    lista.append(temp)
+anterior = int(input())
 
-for i in range(1, len(lista)):
-    atual = lista[i]
+maior = 1
+cont = 1
 
-    anterior = lista[i - 1]
+for i in range(n - 1):
+    atual = int(input())
 
-    print(f"Anterior : {anterior}")
-    print(f"atual: {atual}")
     if atual > anterior:
         cont += 1
-        maior.append(cont)
     else:
         cont = 1
-print(max(maior))
+
+    if cont > maior:
+        maior = cont
+
+    anterior = atual
+print(maior)
